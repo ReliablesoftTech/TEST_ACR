@@ -1,0 +1,59 @@
+version: "3"
+services:
+  acsapigateway:
+    build:
+      context: "./ACSApiGateway"
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+    image: ${registry_url}/acsapigateway:develop
+    # depends_on:
+    #   - bmsnasservice
+    #   - bmsradiusservice
+    ports:
+      - "${ipaddress}:13900:13900"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    environment:
+      - TZ=$TZ
+  acsservice:
+    build:
+      context: "./ACSService"
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+    image: ${registry_url}/acsservice:develop
+    ports:
+      - "${ipaddress}:13901:13901"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    environment:
+      - TZ=$TZ
+  acsconsumerservice:
+    build:
+      context: "./ACSConsumerService"
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+    image: ${registry_url}/acsconsumerservice:develop
+    ports:
+      - "${ipaddress}:13902:13902"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    environment:
+      - TZ=$TZ

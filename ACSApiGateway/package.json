@@ -1,0 +1,51 @@
+{
+  "name": "acsapigateway",
+  "version": "1.0.0",
+  "description": "ACS API Gatway",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "export API_ENVR=1 && npm run clean && (conc --kill-others --raw npm:watch*)",
+    "dev": "set API_ENVR=2 && npm run clean && (conc --kill-others --raw npm:watch*)",
+    "testing": "set API_ENVR=3 && npm run clean && (conc --kill-others --raw npm:watch*)",
+    "lnx": "export API_ENVR=2 && npm run clean && (conc --kill-others --raw npm:watch*)",
+    "clean": "node -e \"const fs = require('fs'); fs.mkdirSync('build', { recursive: true }); fs.writeFileSync('build/bundle.js', '');\"",
+    "build": "webpack --config=webpack.prod.js --color --progress",
+    "watch-nodemon": "nodemon build/bundle.js --watch build",
+    "watch-webpack": "webpack --config=webpack.dev.js --color --progress --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "4.3.1",
+    "@babel/core": "7.20.12",
+    "@babel/preset-env": "7.20.2",
+    "@graphql-tools/schema": "9.0.14",
+    "@reliablesofttech/bmsmessagehandler": "2023.11.02",
+    "@reliablesofttech/bmsmiddleware": "2023.11.02",
+    "axios": "1.4.0",
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "got": "11.5.0",
+    "graphql": "16.6.0",
+    "graphql-request": "5.1.0",
+    "graphql-tag": "2.12.6",
+    "jsonwebtoken": "9.0.0",
+    "kafkajs": "2.2.4",
+    "moment": "2.29.4",
+    "prom-client": "14.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.21.3",
+    "@babel/preset-env": "7.20.2",
+    "babel-loader": "9.1.2",
+    "concurrently": "7.6.0",
+    "copy-webpack-plugin": "11.0.0",
+    "nodemon": "2.0.22",
+    "webpack": "5.76.3",
+    "webpack-cli": "5.0.1",
+    "webpack-node-externals": "3.0.0"
+  }
+}
