@@ -1,6 +1,6 @@
 import { APICalling } from "../../Middleware/ApiCalling";
 import { BMSACS_SERVICE_URI } from "../index";
-const prepareCommandQueueVariable = (args, CONTEXT) => {
+const prepareCommandQueueVariable  (args, CONTEXT) => {
   let sCommandParam = JSON.stringify(args.variable) + "," + args.URL;
 
   const data = {
@@ -11,7 +11,7 @@ const prepareCommandQueueVariable = (args, CONTEXT) => {
     iCommandId: 1,
     iEmployeeId: CONTEXT.iEmployeeId,
     sMacAddress: args.sMacAddress,
-    iIspId: CONTEXT.iIspId,}}}
+    iIspId: CONTEXT.iIspId,
   };
 
   return data;
