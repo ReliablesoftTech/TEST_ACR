@@ -18,7 +18,8 @@ const prepareCommandQueueVariable = (args, CONTEXT) => {
 };
 export default class ACSCommandQueue {
   static async insertCommandQueue(args, CONTEXT) {
-    const data =
+    const data = prepareCommandQueueVariable(args, CONTEXT);
+
     const BODY = await APICalling(
       BMSACS_SERVICE_URI,
       "insertmacscommandqueue",
@@ -29,3 +30,34 @@ export default class ACSCommandQueue {
     return BODY;
   }
 }
+
+export default class ACSCommandQueue {
+  static async insertCommandQueue(args, CONTEXT) {
+    const data = prepareCommandQueueVariable(args, CONTEXT);
+
+    const BODY = await APICalling(
+      BMSACS_SERVICE_URI,
+      "insertmacscommandqueue",
+      { ...args, variable: data },
+      CONTEXT
+    );
+
+    return BODY;
+  }
+}
+
+export default class ACSCommandQueue {
+  static async insertCommandQueue(args, CONTEXT) {
+    const data = prepareCommandQueueVariable(args, CONTEXT);
+
+    const BODY = await APICalling(
+      BMSACS_SERVICE_URI,
+      "insertmacscommandqueue",
+      { ...args, variable: data },
+      CONTEXT
+    );
+
+    return BODY;
+  }
+}
+
