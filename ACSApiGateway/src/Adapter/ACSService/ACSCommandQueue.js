@@ -11,7 +11,7 @@ const prepareCommandQueueVariable = (args, CONTEXT) => {
     iCommandId: 1,
     iEmployeeId: CONTEXT.iEmployeeId,
     sMacAddress: args.sMacAddress,
-    iIspId: CONTEXT.iIspId,}
+    iIspId: CONTEXT.iIspId,}}
   };
 
   return data;
