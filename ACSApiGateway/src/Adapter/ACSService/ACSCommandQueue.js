@@ -1,6 +1,6 @@
 import { APICalling } from "../../Middleware/ApiCalling";
 import { BMSACS_SERVICE_URI } from "../index";
-const prepareCommandQueueVariable  (args, CONTEXT) => {
+const prepareCommandQueueVariable = (args, CONTEXT) => {
   let sCommandParam = JSON.stringify(args.variable) + "," + args.URL;
 
   const data = {
@@ -18,8 +18,7 @@ const prepareCommandQueueVariable  (args, CONTEXT) => {
 };
 export default class ACSCommandQueue {
   static async insertCommandQueue(args, CONTEXT) {
-    const data = prepareCommandQueueVariable(args, CONTEXT);
-
+    const data =
     const BODY = await APICalling(
       BMSACS_SERVICE_URI,
       "insertmacscommandqueue",
