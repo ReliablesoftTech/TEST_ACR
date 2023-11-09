@@ -7,6 +7,7 @@ const { erhandler } = require("@reliablesofttech/bmsmessagehandler");
 export default class ACSUpdateData {
   static async update_ACS(args, CONTEXT) {
     let { URL, sSerialNumber } = args;
+	let sURL ="";
 
     if (URL && sSerialNumber) {
       URL = ACSUpdateURL(args);
