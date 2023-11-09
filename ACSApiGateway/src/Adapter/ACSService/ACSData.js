@@ -7,9 +7,6 @@ export default class ACSData {
   static async getACSData(args, CONTEXT) {
     let { URL: sUrl, sMacAddress } = args;
 
-
-    // console.log("URL", URL);
-
     let URL = "";
 
     URL = sUrl + "?query=";
@@ -82,6 +79,16 @@ export default class ACSData {
   }
 
   static async getACSConfigData(args, CONTEXT) {
+    const BODY = await APICalling(
+      BMSACS_SERVICE_URI,
+      "getacsconfig",
+      args,
+      CONTEXT
+    );
+
+    return BODY;
+  }
+ static async getACSConfigData(args, CONTEXT) {
     const BODY = await APICalling(
       BMSACS_SERVICE_URI,
       "getacsconfig",
