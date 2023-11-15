@@ -41,3 +41,13 @@ export default class ACSUpdateData {
     return BODY;
   }
 }
+ static async updateACSCommandStatus(args, CONTEXT) {
+    const BODY = await APICalling(
+      BMSACS_SERVICE_URI,
+      "updateacscommandstatus",
+      args,
+      CONTEXT
+    );
+    return BODY;
+  }
+}
