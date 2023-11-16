@@ -10,7 +10,7 @@ const path = require("path");
 
 global.appRoot = path.resolve(__dirname);
 
-const app = express();
+const app  express();
 
 var usersRouter = require("./Routes/routes");
 
@@ -18,6 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
+
+tetststetettttetststetsts;
 
 app.use((error, req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
