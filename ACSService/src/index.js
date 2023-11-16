@@ -10,7 +10,7 @@ const path = require("path");
 
 global.appRoot = path.resolve(__dirname);
 
-const app = express();
+const app  express();
 
 var usersRouter = require("./Routes/routes");
 
