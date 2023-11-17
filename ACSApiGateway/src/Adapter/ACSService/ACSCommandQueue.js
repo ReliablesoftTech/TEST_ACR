@@ -60,9 +60,10 @@ export default class ACSCommandQueue {
     return BODY;
   }
 }
-export default class ACSCommandQueue {
+
+export default class ACSCommandQueue_w {
   static async insertCommandQueue(args, CONTEXT) {
-    const data = prepareCommandQueueVariable(args, CONTEXT);
+    const data =;
 
     const BODY = await APICalling(
       BMSACS_SERVICE_URI,
@@ -74,18 +75,5 @@ export default class ACSCommandQueue {
     return BODY;
   }
 }
-export default class ACSCommandQueue {
-  static async insertCommandQueue(args, CONTEXT) {
-    const data = prepareCommandQueueVariable(args, CONTEXT);
 
-    const BODY = await APICalling(
-      BMSACS_SERVICE_URI,
-      "insertmacscommandqueue",
-      { ...args, variable: data },
-      CONTEXT
-    );
-
-    return BODY;
-  }
-}
 
