@@ -2,13 +2,10 @@ const got = require("got");
 import { BMSACS_SERVICE_URI } from "../index";
 import { APICalling } from "../../Middleware/ApiCalling";
 const { erhandler } = require("@reliablesofttech/bmsmessagehandler");
-import axios from "axios";
+//import axios from "axios";
 export default class ACSData {
   static async getACSData(args, CONTEXT) {
     let { URL: sUrl, sMacAddress } = args;
-
-
-    // console.log("URL", URL);
 
     let URL = "";
 
@@ -82,6 +79,16 @@ export default class ACSData {
   }
 
   static async getACSConfigData(args, CONTEXT) {
+    const BODY = await APICalling(
+      BMSACS_SERVICE_URI,
+      "getacsconfig",
+      args,
+      CONTEXT
+    );
+
+    return BODY;
+  }
+ static async getACSConfigData(args, CONTEXT) {
     const BODY = await APICalling(
       BMSACS_SERVICE_URI,
       "getacsconfig",
